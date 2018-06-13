@@ -34,12 +34,15 @@
             width: 100%;
             height: auto;
         }
-        .table > tbody > tr > td {
+
+        .table {
             vertical-align: middle;
             text-align: center;
         }
+
         .big-checkbox {
-            width: 20px; height: 20px;
+            width: 20px;
+            height: 20px;
         }
 
     </style>
@@ -67,13 +70,20 @@
     <form action="/deletesome" enctype="multipart/form-data" method="POST">
         <table class="table table-bordered">
             <tbody>
+            <thead>
+            <tr>
+                <th>Delete</th>
+                <th>Photo id</th>
+                <th>Photo</th>
+            </tr>
+            </thead>
             <c:forEach items="${photos}" var="photo">
                 <tr>
                     <td>
                         <input type="checkbox" class="big-checkbox" name="photos[]" value="${photo}">
                     </td>
                     <td>
-                            <a href="/photo/${photo}">${photo}</a>
+                        <a href="/photo/${photo}">${photo}</a>
                     </td>
                     <td>
                         <img class="thumbnail" src="/photo/${photo}"/>
